@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/contact.css">
+  <title>The Shipping Store</title>  
+  <link rel="shortcut icon" href="assets/img/LOGOTSS.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dangrek&family=Lumanosimo&family=Montserrat:ital,wght@0,400;1,300;1,400&family=Pangolin&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/1a61aafc27.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+
+<section class="header">
+    <div class="header_content">
+      <div class="logo">
+        <div class="header-logo">
+          <img src="assets/img/LOGOTSS.png" alt="The Shipping Store Logo" />
+        </div>
+      </div>
+
+      <div class="Nav-options">
+        <ul>
+          <li><a href="http://localhost/tss-copia/index.php">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+<div class="contact-title">
+    <h2>Contact Us</h2>
+    <p>Send us any concerns and we will respond as soon as possible.</p>
+  </div>
+
+  <section class="contact">    
+    
+    <div class="container"> 
+
+      <div class="contact-details">
+        <div class="title">
+          <h4>Contact Details</h4>
+        </div>                          
+          <div class="info info-whatsapp">
+              <i class="fas fa-mobile-alt" style="text-align: center;"></i>
+              <h3 class="">WHATSAPP :
+                <br>
+                  <span>+1(813)370-9230</span></h3>
+          </div>                    
+          <div class="info info-email">
+              <i class="far fa-envelope"></i>
+              <h3 class="">EMAIL :
+                  <br>
+                  <span>customerservices@theshippingstores.com</span></h3>
+          </div>
+      </div>
+
+      <div class="contact-container">    
+        <form  action= '' method="POST" autocomplete="off" class="contact-form" 
+          id="contact-form" onclick="">
+      
+        <div class="contact-inputs"> 
+
+          <div class="contact-header">
+          <div class="form__content" id="form__content-name">           
+            <div class="form__content-input">
+              <input type="text" name="name" id="name" placeholder="Full Name" class="formulario-input" />
+            </div>          
+          </div>
+
+          <div class="form__content" id="form__content-email">           
+            <div class="form__content-input">
+              <input type="email" name="email" id="email" placeholder="Email" class="formulario-input" />
+            </div>          
+          </div>
+        </div>  
+
+        <div class="contact-body">
+          <div class="form__content-subject" id="form__content-subject">            
+            <div class="form__content-input">
+              <input type="text" name="subject" id="subject" placeholder="Subject" class="formulario-input" />
+            </div>           
+          </div>
+        <div class="contact-textarea">         
+          <textarea name="message" id="message" cols="30" rows="10"
+            placeholder="Message" maxlength="500"></textarea>
+        </div>  
+        </div>  
+        <div>    
+        <div class="form__group-btn form__group-btn-sent">
+          <button type="submit" name="submitContact" class="btn btn-form" id="form__btn" onclick="">
+            Submit
+          </button>           
+        </div>       
+      
+    </div>
+    </form>
+  </div>
+  </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <script>
+    let contactform = document.getElementById('contact-form');
+
+    contactform.addEventListener('submit', e=>{
+      e.preventDefault();
+
+        let removerClase = document.querySelectorAll('.remover');
+
+        if(removerClase.length > 0){
+            
+            for(let i = 0; i< removerClase.length; i++ ){
+                removerClase[i].parentNode.removeChild(removerClase[i])
+            }
+        }  
+
+        let datos = new FormData(contactform);
+
+        let peticion = {
+            method:'POST',
+            body:datos,
+        }
+
+        fetch('contact.php',peticion)
+            .then(respuesta => respuesta.json())
+            .then(respuesta => {
+                 if(respuesta['respuesta']){
+                  Swal.fire({
+                  title: "The Information has been sent",
+                  text: "We will contact you Soon",
+                  icon: "success"
+                  }).then((value)=>(location.reload()));
+                }
+                else{
+                  for(const resultado in respuesta){
+                    let padre = document.querySelector('#'+resultado);
+                    padre.classList.add('resaltar');
+                    let txt = document.createElement('p');
+                    txt.classList.add('text-danger');
+                    txt.classList.add('remover');
+                    txt.innerHTML = respuesta[resultado];
+                    document.querySelector('#'+resultado).insertAdjacentElement('afterend', txt);
+                    Swal.fire("Please complete all the requested information");
+                }   
+                }
+            }).catch(error =>console.log('error', error));
+    });
+
+</script>
+
+
+<section class="container-footer">     
+  <div class="footer">
+    <img src="assets/img/LOGOTSS.png" alt="" />
+  </div>
+
+  <div class="social-media">
+    <span>Follow Us</span>
+    <div class="icons">
+      <div class="instagram">
+        <a href="#"><i class="fa-brands fa-instagram" ></i></a>
+      </div>
+      <div class="mail">
+        <a href="mailto:customerservices@theshippingstores.com"><i class="fa-regular fa-envelope"></i></a>
+      </div>
+      <div class="whatsapp">
+        <a href="https://api.whatsapp.com/send?phone=18133709230"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright-text">
+    <p>Copyright &copy; 2024</p>
+    <p>All Right Reserved <br /><a href="#">The Shipping Stores</a></p>
+  </div>
+</section>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

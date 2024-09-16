@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel=»canonical» href=»https://theshippingstores.com/» />
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <title>The Shipping Store</title>
+
+  
+  <link rel="shortcut icon" href="assets/img/LOGOTSS.png" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dangrek&family=Lumanosimo&family=Montserrat:ital,wght@0,400;1,300;1,400&family=Pangolin&display=swap"
+    rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/1a61aafc27.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+      <!-- BANNER -->
+  <section class="header">
+    <div class="header_content">
+      <div class="logo">
+        <div class="header-logo">
+          <img src="assets/img/LOGOTSS.png" alt="The Shipping Store Logo" />
+        </div>
+      </div>
+      <div class="Nav-options">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="http://localhost/tss-copia/form.php">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="banner">
+    <div class="bannerImg"><img src="assets/img/1.png" alt="" /></div>
+    
+    <div class="content">
+      <h1><em>The Shipping Store</em></h1>    
+      <h2>Ensuring Timely <br />and Secure Deliveries</h2>      
+    </div>
+    <div class="slogan">
+      <h3>
+        A New Concept in National <br />
+        And International Shipping!
+      </h3>
+    </div>
+  </div>
+  <!-- ABOUT US-->
+  <section class="about">
+    <div class="about_content">
+      <img src="assets/img/9.png" alt="" />
+      <h2 class="about_title">About Us</h2>
+      <div class="about_text">
+        <p>
+          In today's interconnected world, the efficiency and reliability of
+          logistics services are crucial for bussinesses operating on a global
+          scale. <br /><strong>The Shipping Store (TSS)</strong> was founded to provide our customers with the tools and support they need to ship their packages efficiently at the best possible rates.</p>
+          <br />
+          <p>
+          With over 25 years of industry experience, our partners have created <em>TSS @The.ShippingStore</em> to offer a one-stop shop for all your shipping needs. Enjoy the convenience of shipping nationally and internationally with our partners, DHL&reg;, UPS&reg;, and FedEx&reg;, from the comfort of your home or office. You'll have the option to import products from other countries as well.
+        </p>
+      </div>
+    </div>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slider-item">
+          <img src="assets/img/fedex-ups-dhl-usps.png" alt="" class="slider-img" />
+        </div>
+        <div class="slider-item">
+          <img src="assets/img/dhl.jpg" alt="" class="slider-img" />
+        </div>
+        <div class="slider-item">
+          <img src="assets/img/FedEx.jpg" alt="" class="slider-img" />
+        </div>
+        <div class="slider-item">
+          <img src="assets/img/ups-express-box.jpg" alt="" class="slider-img" />
+        </div>
+      </div>
+      <div class="btn-slider btn-right" id="btn-right">
+        <img src="assets/img/right-chevron.png" alt="" />
+      </div>
+      <div class="btn-slider btn-left" id="btn-left">
+        <img src="assets/img/left-chevron.png" alt="" />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const slider = document.querySelector("#slider");
+    let sliderItem = document.querySelectorAll(".slider-item");
+    let sliderItemLast = sliderItem[sliderItem.length -1];
+
+    const btnRight = document.querySelector("#btn-right");
+    const btnLeft = document.querySelector("#btn-left");
+
+    slider.insertAdjacentElement("afterbegin", sliderItemLast);
+
+    function moveToRight() {
+        let sliderItemFirst = document.querySelectorAll(".slider-item")[0];
+        slider.style.marginLeft = "-100%";
+        slider.style.transition = "all ease 0.6s";
+        setTimeout(function(){
+            slider.style.transition = "none",
+            slider.insertAdjacentElement("beforeend", sliderItemFirst),
+            slider.style.marginLeft = "0%";
+        }, 600);
+    }
+
+    
+    function moveToLeft() {
+        let sliderItem = document.querySelectorAll(".slider-item");
+        let sliderItemLast = sliderItem[sliderItem.length -1];
+        slider.style.marginLeft = "0";
+        slider.style.transition = "all ease 0.6s";
+        setTimeout(function(){
+            slider.style.transition = "none",
+            slider.insertAdjacentElement("afterbegin", sliderItemLast),
+            slider.style.marginLeft = "-100%";
+        }, 600);
+    }
+    btnRight.addEventListener("click" , function(){
+        moveToRight() ; 
+        
+    });
+
+    btnLeft.addEventListener("click" , function(){
+        moveToLeft() ;
+    });
+
+    setInterval (function(){
+        moveToRight();
+    }, 6000);
+  </script>
+
+  <!-- OUR SERVICES -->
+  <section class="our-services">
+    <br />
+    <img src="assets/img/servicesbackroung.png" alt="" />
+    <div class="our-services-title">
+      <h2>Our Shipping Options</h2>
+    </div>
+    <div class="our-services-info">
+      <div class="our-services-info-top">
+        <p>
+          In TSS we know that global logistic is the backbone of international trade, connecting business with markets across the wolrd, providing efficient logistics services not only ensuring that products are delivered on time but also helping to reduce cost and improve customer satisfaction. 
+        </p>        
+      </div> 
+      <div>
+        <p>
+          We offer a range of services that ensure your products are delivered
+          efficiently and securely, no matter where in the world they need to
+          go.
+        </p>        
+      </div>
+    </div>
+    <section class="card-section">
+      <div class="card_DHL">
+        <div class="circle_DHL">
+          <div class="content_DHL">
+            <h3>DHL</h3>
+            <ul>
+              <li>
+                <img src="assets/img/worldwide-shipping.png" alt="" />
+                International Shipping Documents and Non Documents
+              </li>
+            </ul> 
+            <ul>
+              <li>
+                <img src="assets/img/fork-lifter.png" alt="" />
+                Heavy Shipments of more than 50Kg(110lb)
+              </li>
+            </ul>           
+            <ul>
+              <li><img src="assets/img/import.png" alt="" /> Import</li>
+            </ul>
+            <ul>
+              <li>
+                <img src="assets/img/free-delivery.png" alt="" /> Pick-Up
+              </li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/drop-off.png" alt="" /> Drop-Off</li>
+            </ul>            
+          </div>
+        </div>
+        <img src="assets/img/DHLExpress_3.jpg" alt="" />
+      </div>
+      <div class="card_Fedex">
+        <div class="circle_fedex">
+          <div class="content_fedex">
+            <h3>FEDEX</h3>
+            <ul>
+              <li>
+                <img src="assets/img/worldwide-shipping.png" alt="" />
+                International Shipping Documents and Non Documents
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <img src="assets/img/delivery.png" alt="" /> National Shipping
+              </li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/import.png" alt="" /> Import</li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/consolidation.png" alt="" /> National Freight</li>
+            </ul>
+            <ul>
+              <li>
+                <img src="assets/img/free-delivery.png" alt="" /> Pick-Up
+              </li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/drop-off.png" alt="" /> Drop-Off</li>
+            </ul>            
+          </div>
+        </div>
+        <img src="assets/img/fedex-all.png" alt="" />
+      </div>
+      <div class="card_ups">
+        <div class="circle_ups">
+          <div class="content_ups">
+            <h3>UPS</h3>
+            <ul>
+              <li>
+                <img src="assets/img/worldwide-shipping.png" alt="" />
+                International Shipping Documents and Non Documents
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <img src="assets/img/delivery.png" alt="" /> National Shipping
+              </li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/import.png" alt="" /> Import</li>
+            </ul>
+            <ul>
+              <li>
+                <img src="assets/img/free-delivery.png" alt="" /> Pick-Up
+              </li>
+            </ul>
+            <ul>
+              <li><img src="assets/img/drop-off.png" alt="" /> Drop-Off</li>
+            </ul>
+          </div>
+        </div>
+        <img src="assets/img/ups-international-courier.jpg" alt="" />
+      </div>
+    </section>
+  </section> <!---->
+<!-- INSTRUCTIONS-->
+<section class="instruction-container">
+  <div class="container-instruction">
+<img src="assets/img/treats-online.png" alt="">  
+  <div class="instruction-title">
+    <h2> Want to use our Service?</h2>
+    <p> It's easy! <br> Just complete our quote form with the following data: </p>
+  </div>
+<div class="instrutions">
+  <ul>
+    <li>1. Where is your package coming from?</li>
+    <li>2. Where is the package going?</li>
+</ul>
+<ul>
+  <li>3. What does the package contain?</li>
+  <li>4. How much is it worth for insurance and for custom purpose?</li>
+</ul>
+<ul>
+  <li>5. Dimensions and weight.</li>
+  <li>6. Just pick your favorite courier: DHL&reg; , FedEx&reg;, or UPS&reg;. Or, we can give you prices for all of them.</li>
+</ul>
+<ul>
+  <li>7. Choose Pick-up or drop-off.</li>
+  <li>8. With this information, we will send you a quote with different prices options for you to choose.</li>
+</ul>
+<ul>
+  <li>9. Once the quote is approved, we will send you the payment link.</li>
+  <li>10. Once the payment has been made, we will send you the shipping label to place it on the package. Then, according to your preference, we can proceed to schedule a pick-up or you can drop-off the package in the nearest courier station.</li>
+</ul>
+</div>
+</div>
+</section>
+  <!-- CONTACT -->
+  <section class="contact">
+    <img src="assets/img/11.png" alt="">
+    <div class="quote-title">
+      <h2>Quote</h2>
+      <p>
+        Please, complete all the form fields.
+      </p>
+    </div>
+    <form  action= '' method="POST" autocomplete="off" class="form-register" 
+    id="form-register" onclick="">
+      <div class="form">
+        <div class="from-form">
+          <h4>From</h4>
+          <div class="form__content" id="form__content-name">
+            <label for="name" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="name" id="name" placeholder="Full Name" class="formulario-input" />
+              
+            </div>
+          </div>
+          <div class="form__content" id="form__content-email">
+            <label for="email" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="email" name="email" id="email" placeholder="Email" class="formulario-input" />
+              
+            </div>
+           
+          </div>
+          <div class="form__content" id="form__content-phone">
+            <label for="phone" id="form__content-label">  </label>
+            <div class="form__content-input">
+              <input type="text" name="phone" id="phone" placeholder="Phone Number" class="formulario-input" />
+            </div>
+          </div>
+
+          <div class="form__content" id="form__content-address">
+            <label for="address" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="address" id="address" placeholder="Address" class="formulario-input" />
+            </div>
+         
+          </div>
+          <div class="form__content" id="form__content-address">
+            <label for="residence" id="form__content-label">Bussiness Address</label>
+              <input type="checkbox" name="residence" id="residence" placeholder="" class="formulario-input" />
+          </div>
+
+          <div class="form__content" id="form__content-city">
+            <label for="city" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="city" id="city" placeholder="City" class="formulario-input" />
+              <i class="form__content-input-check fa-solid fa-square-xmark"></i> 
+                        </div>
+            <!-- <p class="formulario__input-msg">Required</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-city">
+            <label for="zipCode" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="zipCode" id="zipCode" placeholder="ZipCode" class="formulario-input" />
+              <i class="form__content-input-check fa-solid fa-square-xmark"></i> 
+            </div>            
+          </div>
+
+          <div class="form__content" id="form__content-country">
+            <label for="country" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="country" id="country" placeholder="Country" class="formulario-input" />
+             <i class="form__content-input-check fa-solid fa-square-xmark"></i> 
+            </div>
+            <!-- <p class="formulario__input-msg">Required</p> -->
+          </div>
+        </div>
+
+        <div class="to-form">
+          <h4>To</h4>
+
+          <div class="form__content" id="form__content-name2">
+            <label for="name2" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="name2" id="name2" placeholder="Full Name" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+           <!--  <p class="formulario__input-msg">Min 3 Max 16 digit</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-email2">
+            <label for="email2" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="email2" name="email2" id="email2" placeholder="Email" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+            <!-- <p class="formulario__input-msg">Please, write a valid e-mail</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-phone2">
+            <label for="phone2" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="phone2" id="phone2" placeholder="Phone Number" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+            <!-- <p class="formulario__input-msg">Only numbers - min 10 digits.</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-address2">
+            <label for="address2" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="address2" id="address2" placeholder="Address" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+           <!--  <p class="formulario__input-msg">Required</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-address">
+            <label for="residence2" id="form__content-label">Bussiness Address</label>
+            <!-- <div class="form__content-input"> -->
+              <input type="checkbox" name="residence2" id="residence2" placeholder="" class="formulario-input"/>
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+           <!--  </div> -->
+            <!-- <p class="formulario__input-msg">Required</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-city2">
+            <label for="city2" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="city2" id="city2" placeholder="City" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+            <!-- <p class="formulario__input-msg">Required</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-city2">
+            <label for="zipCode2" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="zipCode2" id="zipCode2" placeholder="ZipCode" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+            <!-- <p class="formulario__input-msg">Required</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-country2">
+            <label for="country2" id="form__content-label"> </label>
+            <div class="form__content-input">
+              <input type="text" name="country2" id="country2" placeholder="Country" class="formulario-input" />
+             <!--  <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+          <!--   <p class="formulario__input-msg">Required</p> -->
+          </div>
+        </div>
+
+        <div class="form-package-detail">
+          <h4>Package Details</h4>
+
+          <div class="form__content" id="form__content-weight">
+            <label for="weight" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="weight" id="weight" placeholder="Weight (lb)" class="formulario-input" />
+              <!-- <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+           <!--  <p class="formulario__input-msg">only numbers</p> -->
+          </div>
+
+          <div class="form__content" id="form__content-value">
+            <label for="value" id="form__content-label"></label>
+            <div class="form__content-input">
+              <input type="text" name="value" id="value" placeholder="Value (USD)" class="formulario-input" />
+             <!--  <i class="form__content-input-check fa-solid fa-square-xmark"></i> -->
+            </div>
+            <!-- <p class="formulario__input-msg">only numbers</p> -->
+          </div>
+
+          <div class="form__content form_content_size" id="form__content-size">
+            <label for="packageSize" id="form__content-label">Package size (inch)
+            </label>
+            <div class="form__content-input-size">
+              <input type="text" name="size" id="size" value="" placeholder="1" min="1" max="150" class="formulario-input" />
+              x <input type="text" name="size2" id="size2" value="" placeholder="1" min="1" max="150" class="formulario-input" />
+              x <input type="text" name="size3" id="size3" value="" placeholder="1" min="1" max="150" class="formulario-input" />
+              <i class="form__content-input-check fa-solid fa-square-xmark"></i>
+            </div>
+            <p class="formulario__input-msg">For example:15x15x15.</p>
+          </div>
+        </div>
+
+        <div class="form-package-shipping-options">
+          <h4>Shipping Options</h4>
+
+          <div class="form__content" id="form__content-options">
+            <label for="options-courier">Courier</label>
+            <select class="formulario__select" id="options-courier" name="options-courier" >
+              <option value="">--Select an Option--</option>
+              <option value="DHL">DHL</option>
+              <option value="FEDEX">FEDEX</option>
+              <option value="UPS">UPS</option>
+              <option value="ALL">ALL</option>
+            </select>
+            <span></span>
+            <p class="formulario__input-optionmsg">only numbers</p>
+          </div>
+
+          <div class="form__content">
+            <label for="options-content">Content</label>
+            <select class="formulario__select formulario__select-contenido" id="options-content" name="options-content">
+              <option value="">--Select an Option--</option>
+              <option value="Document-General-Bussiness">Document-General Bussiness</option>
+              <option value="Legal-Document">Legal Document</option>
+              <option value="Passport">Passport / ID</option>
+              <option value="Non-Document">Non Document</option>
+            </select>
+            <p class="formulario__input-msg">only numbers</p>
+          </div>
+
+          <div class="form__content">
+            <label for="options-shipping">Type of Shipping</label>
+            <select class="formulario__select formulario__select-contenido" id="options-shipping"
+              name="options-shipping">
+              <option value="">--Select an Option--</option>
+              <option value="Drop-Off">Drop-Off</option>
+              <option value="Pick-Up">Pick-Up</option>
+            </select>
+            <p class="formulario__input-msg">only numbers</p> 
+          </div>
+
+         </div>
+      
+      </div>
+
+      <div class="form_content_bottom">
+        <div class="form__content-textarea">
+          <label class="form__content-label" for="message"></label>
+          <textarea name="message" id="message" cols="30" rows="10"
+            placeholder="Please Write a brief description of Your package" maxlength="500"></textarea>
+        </div>
+
+        <div class="form__group-btn form__group-btn-sent">
+          <button type="submit" name="submitContact" class="btn btn-form" id="form__btn" onclick="">
+            Submit
+          </button> 
+          <br>
+          <br>         
+        </div>       
+      </div>
+    </form>
+  </section>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="  crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+  <script>
+        let formulario = document.getElementById('form-register');
+
+        formulario.addEventListener('submit', e=>{
+          e.preventDefault(); 
+
+            let removerClase = document.querySelectorAll('.remover');
+
+            if(removerClase.length > 0){
+                
+                for(let i = 0; i< removerClase.length; i++ ){
+                    removerClase[i].parentNode.removeChild(removerClase[i])
+                }
+            }  
+
+            let datos = new FormData(formulario);
+
+            let peticion = {
+                method:'POST',
+                body:datos,
+            }
+
+            fetch('email.php',peticion)
+                .then(respuesta => respuesta.json())
+                .then(respuesta => {
+                     if(respuesta['respuesta']){
+                      Swal.fire({
+                      title: "The Information has been sent",
+                      text: "We will contact you Soon",
+                      icon: "success"
+                      }).then((value)=>(location.reload()));
+                    }
+                    else{
+                      for(const resultado in respuesta){
+                        let padre = document.querySelector('#'+resultado);
+                        padre.classList.add('resaltar');
+                        let txt = document.createElement('p');
+                        txt.classList.add('text-danger');
+                        txt.classList.add('remover');
+                        txt.innerHTML = respuesta[resultado];
+                        document.querySelector('#'+resultado).insertAdjacentElement('afterend', txt);
+                        Swal.fire("Please complete all the requested information");
+                    }   
+                    }
+                }).catch(error =>console.log('error', error));
+        });
+
+    </script>
+
+</div>
+
+  <section class="container-footer">   
+    
+    <div class="footer">
+      <img src="assets/img/LOGOTSS.png" alt="" />
+    </div>
+
+    <div class="social-media">
+      <span>Follow Us</span>
+      <div class="icons">
+        <div class="instagram">
+          <a href=""><i class="fa-brands fa-instagram" ></i></a>
+        </div>
+        <div class="mail">
+          <a href="mailto:customerservices@theshippingstores.com target:"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+        <div class="whatsapp">
+          <a href="https://api.whatsapp.com/send?phone=18133709230"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright-text">
+      <p>Copyright &copy; 2024</p>
+      <p>All Right Reserved <br /><a href="#">The Shipping Store</a></p>
+    </div>
+  </section>
+  
+
+  
+
+  <script defer src="/script.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+
+
+
+</body>
+
+</html>
